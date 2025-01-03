@@ -6,6 +6,7 @@ library('zoo')
 library('arulesCBA')
 library('arules')
 library('rCBA')
+library('rJava')
 rm(list=ls())
 
 retail = read.csv('Online_Retail.csv',
@@ -80,10 +81,3 @@ rules.eclat <- ruleInduction(sorted.itemsets.eclat,
 sorted.rules.eclat <- sort(rules.eclat, by = "confidence", decreasing = TRUE)
 
 inspect(sorted.rules.eclat)
-
-
-# FP-Growth Algorithm (jangan lupa dibenerin)
-library(arules)
-# write(retail.transformed, file='data.csv', sep=',')
-# system('cmd', input='fpgrowth -s2 -k, data.csv frequent_itemsets.csv')
-# system('cmd', input='fpgrowth -tr -s2 -c60 -k, data.csv rules')
